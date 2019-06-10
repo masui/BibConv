@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>文献データベース変換</title>
+<style type="text/css">
+<!--
+body {
+  background-color: #ffddff;
+}
+-->
+</style>
+</head>
+<body>
+<h1>ACM, CiNiiなどの文献データをGyazz用に変換する</h1>
+
+<ul>
+<li><form action="acmdl2wiki.cgi" method="get">
+<a href="http://portal.acm.org/dl.cfm">ACM Digital Library</a>のデータをGyazzで利用しやすい形式に変換
+  <ul>
+  <li>ACMDLの「354666.354678」のような
+  <a href="http://ja.wikipedia.org/wiki/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E8%AD%98%E5%88%A5%E5%AD%90">DOI</a>形式を入力
+  <li>「354678」だけ入力してもOK
+(<a href="http://portal.acm.org/citation.cfm?id=1753498">新しい形式?</a>にアクセスする)
+  <li>http://dx.doi.org/10.1145/354666.354678 のようなURLも可
+</ul>
+<input type="text" name="doistring" size='40'>
+<input type="submit" value="変換">
+</form>
+
+<li>
+<form action="cinii2wiki.cgi" method="get">
+<a href="http://ci.nii.ac.jp/">CiNii</a>のデータをGyazzで利用しやすい形式に変換
+<br>
+CiNiiの「80011024041」のような「NAID」を入力
+<br>
+(http://ci.nii.ac.jp/naid/80011024041 のようなURLも可)
+<br>
+<input type="text" name="naidstring" size='40'>
+<input type="submit">
+</form>
+</ul>
+
+<h2>解説</h2>
+
+<ul>
+<li>
+<a href="http://Gyazz.com/UIPedia">Gyazz上の文献データベース</a>作成に使います。
+<li>情報の手入力は面倒なので、
+ACM Digital LibraryやCiNiiで検索したデータからGyazz用のテキストを生成するフィルタを作ってみたものです。
+<li>
+ACMもCiNiiもRefer形式のデータを出力させることが可能なので、
+それをGyazzに向いたテキストに変換しています。
+<li>
+検索結果からGreasemonkeyで直接変換できるようにしたいものです
+<li>
+ちなみにRefer形式というのは、TeXより昔によく使われていたroffとかtroffとかで使われてた文献形式です。
+<li>しかし実はRefer形式はroffより昔のシステムで使われていたものだった気がします。
+<li>BibTeX形式というのは、TeXより昔にCMUで使われていたScribeという文書整形システムで使われているいた文献形式だったりして、
+<li>何がなんだかわかりませんが、一度流行った規格は生き残るものだということでしょうかね。
+</ul>
+
+</body>
+</html>
+
+
